@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "LongestIncreasingSubsequence.Test": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

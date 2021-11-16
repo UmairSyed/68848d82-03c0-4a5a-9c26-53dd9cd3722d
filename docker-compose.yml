@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  longestincreasingsubsequence.test:
+    image: ${DOCKER_REGISTRY-}longestincreasingsubsequencetest
+    build:
+      context: .
+      dockerfile: LongestIncreasingSubsequence.Test/Dockerfile
