@@ -13,5 +13,5 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Execute tests
-        working-directory: ./LongestIncreasingSubsequence
+        working-directory: ./LongestIncreasingSubsequence.Test
         run: ls *
