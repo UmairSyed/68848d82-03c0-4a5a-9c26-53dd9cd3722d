@@ -10,22 +10,22 @@ namespace LongestIncreasingSubsequence.Test
             Assert.Pass();
         }
 
-        [TestCase("", "")]
+        [TestCase("", "", Description = "Test Case 01")]
         public void Get_EmptyInputString_ReturnsEmptyOutputString(string input, string output)
         {
-            Assert.AreEqual(output, LongestIncreasingSubsequence.Get(input));
+            Assert.AreEqual(output, LongestIncreasingSubsequence.GetLongestIncreasingSubsequence(input));
         }
 
-        [TestCase("100", "100")]
+        [TestCase("100", "100", Description = "Test Case 01")]
         public void Get_SingleInputString_ReturnsSameOutputString(string input, string output)
         {
-            Assert.AreEqual(output, LongestIncreasingSubsequence.Get(input));
+            Assert.AreEqual(output, LongestIncreasingSubsequence.GetLongestIncreasingSubsequence(input));
         }
 
-        [TestCase("ABC 123", "")]
+        [TestCase("ABC 123", "", Description = "Test Case 01")]
         public void Get_SpaceSeparatedAlphaNumericString_ReturnsEmptyOutputString(string input, string output)
         {
-            Assert.AreEqual(output, LongestIncreasingSubsequence.Get(input));
+            Assert.AreEqual(output, LongestIncreasingSubsequence.GetLongestIncreasingSubsequence(input));
         }
 
         [TestCase("6 1 5 9 2", "1 5 9", Description = "Test Case 01")]
@@ -41,7 +41,7 @@ namespace LongestIncreasingSubsequence.Test
         [TestCase("6 2 4 3 1 5 9", "1 5 9", Description = "Test Case 11")]
         public void Get_SpaceSeparatedInputString_ReturnsLongestIncreasingSubsequenceOutputString(string input, string output)
         {
-            Assert.AreEqual(output, LongestIncreasingSubsequence.Get(input));
+            Assert.AreEqual(output, LongestIncreasingSubsequence.GetLongestIncreasingSubsequence(input));
         }
     }
 }

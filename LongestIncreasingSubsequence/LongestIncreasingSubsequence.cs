@@ -1,28 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 
 namespace LongestIncreasingSubsequence
 {
     public static class LongestIncreasingSubsequence
     {
-        public static string Get (string input)
+        
+        /// <summary>
+        /// A simple method to take a sequence of numbers and returns longest increasing sequeance
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public static string GetLongestIncreasingSubsequence(string input)
         {
-            //Return empty if string is empty or null
-            if (string.IsNullOrWhiteSpace(input))
-                return "";
 
-            var stringArray = input.Split(" ");
+            if (string.IsNullOrWhiteSpace(input))
+                return string.Empty;
+
+            var stringArray = input.Split(Constants._delimater);
 
             if (stringArray.Length == 1)
                 return stringArray[0];
 
-            //Checking if all values are numbers
             if (!AreAllIntegers(stringArray))
-                return "";
+                return string.Empty;
 
-            //Convert string array into long array
             var numberArray = ConvertToLongArray(stringArray);
 
             int longestLength, resultIndex, tempIndex;
@@ -36,9 +38,11 @@ namespace LongestIncreasingSubsequence
                     tempIndex = i;
                 }
 
-                if (longestLength < i - tempIndex + 1)
+                var indexRange = i - tempIndex + 1;
+
+                if (longestLength < indexRange)
                 {
-                    longestLength = i - tempIndex + 1;
+                    longestLength = indexRange;
                     resultIndex = i;
                 }
             }
@@ -49,12 +53,17 @@ namespace LongestIncreasingSubsequence
 
             var tempOutput = numberArray.Skip(startIndex).Take(endIndex - startIndex);
 
-            var output = string.Join(" ", tempOutput);
-            
+            var output = string.Join(Constants._delimater, tempOutput);
+
             return output;
         }
 
-        private static Boolean AreAllIntegers (string[] input)
+        /// <summary>
+        /// A method to make sure all values in sequence are numbers
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        private static Boolean AreAllIntegers(string[] input)
         {
             foreach (var value in input)
             {
@@ -67,6 +76,11 @@ namespace LongestIncreasingSubsequence
             return true;
         }
 
+        /// <summary>
+        /// This method converts string array into long array
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         private static long[] ConvertToLongArray(string[] input)
         {
             return Array.ConvertAll(input, s => long.Parse(s));
