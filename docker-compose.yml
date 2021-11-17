@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   longestincreasingsubsequence.test:
-    container_name: test
+    container_name: longestincreasingsubsequence.test
     image: mcr.microsoft.com/dotnet/sdk:2.1
     build:
       context: .
