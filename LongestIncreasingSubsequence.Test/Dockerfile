@@ -12,8 +12,6 @@ COPY . .
 WORKDIR "/src/LongestIncreasingSubsequence.Test"
 RUN dotnet build "LongestIncreasingSubsequence.Test.csproj" -c Release -o /app/build
 
-RUN dotnet test "LongestIncreasingSubsequence.Test/LongestIncreasingSubsequence.Test.csproj" --logger "trx;LogFileName=testFile.trx" 
-
 FROM build AS publish
 RUN dotnet publish "LongestIncreasingSubsequence.Test.csproj" -c Release -o /app/publish
 
