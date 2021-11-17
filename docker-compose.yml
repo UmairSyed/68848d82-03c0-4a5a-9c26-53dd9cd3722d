@@ -2,7 +2,17 @@ version: '3.4'
 
 services:
   longestincreasingsubsequence.test:
-    image: ${DOCKER_REGISTRY-}longestincreasingsubsequencetest
+    container_name: test
+    image: mcr.microsoft.com/dotnet/sdk:2.1
     build:
       context: .
       dockerfile: LongestIncreasingSubsequence.Test/Dockerfile
+    volumes:
+      - .:/src
+    working_dir: /src
+    command:
+      [
+        "dotnet",
+        "test",
+        "LongestIncreasingSubsequence.Test/LongestIncreasingSubsequence.Test.csproj"
+      ]
